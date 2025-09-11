@@ -47,8 +47,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The dashboard will be available at `http://localhost:8501`
-
 ## 📁 Project Structure
 ```
 Streamlit_App/
@@ -73,10 +71,4 @@ The dashboard uses Uber ride booking data with the following columns:
 - **Consistent Color Scheme**: Coordinated colors across all visualizations
 
 ## 🌐 Live Demo
-[Add your deployed link here]
-
-## 👨‍💻 Author
-[Your Name]
-
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE).
+https://uberdataanalyticsdashboard-am9eksnt3rpnwzhdzf6ty7.streamlit.app/)
