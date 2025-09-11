@@ -49,11 +49,13 @@ streamlit run app.py
 
 ## 📁 Project Structure
 ```
-Streamlit_App/
-├── app.py                 # Main dashboard application
-├── cleaned_uber.csv       # Dataset file
-├── requirements.txt       # Python dependencies
-└── README.md             # Project documentation
+uber_data_analytics_dashboard/
+├── .gitignore             
+├── README.md                 
+├── app.py                      
+├── cleaned_uber.csv             
+├── ncr_ride_bookings.csv       
+└── requirements.txt              
 ```
 
 ## 📊 Dataset
