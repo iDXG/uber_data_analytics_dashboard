@@ -91,7 +91,8 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv(r"C:\Users\dxgam\Streamlit_App\cleaned_uber.csv")
+        # Use relative path for deployment compatibility
+        df = pd.read_csv("cleaned_uber.csv")
         # Convert DateTime column to datetime
         df['DateTime'] = pd.to_datetime(df['DateTime'])
         # Extract additional time features if not present
@@ -101,7 +102,7 @@ def load_data():
             df['Month'] = df['DateTime'].dt.month
         return df
     except FileNotFoundError:
-        st.error("❌ Dataset file not found. Please ensure 'cleaned_uber.csv' exists in the specified directory.")
+        st.error("❌ Dataset file not found. Please ensure 'cleaned_uber.csv' exists in the same directory as app.py")
         return None
     except Exception as e:
         st.error(f"❌ Error loading data: {str(e)}")
@@ -440,10 +441,10 @@ if df is not None:
     """, unsafe_allow_html=True)
 
 else:
-    st.error("❌ Unable to load the dataset. Please ensure 'cleaned_uber.csv' exists in the specified directory and is accessible.")
+    st.error("❌ Unable to load the dataset. Please ensure 'cleaned_uber.csv' exists in the same directory as app.py")
     st.markdown("""
     ### 📋 Expected file location:
-    `C:\\Users\\dxgam\\Streamlit_App\\cleaned_uber.csv`
+    `cleaned_uber.csv` (in the same folder as app.py)
     
     ### 📊 Expected columns:
     - Booking ID, Booking Status, Customer ID, Vehicle Type
