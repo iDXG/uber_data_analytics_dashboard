@@ -91,21 +91,38 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        # Use relative path for deployment compatibility
-        df = pd.read_csv("cleaned_uber.csv")
+        # Use relative path for deployment compatibility with additional CSV parameters
+        df = pd.read_csv("cleaned_uber.csv", 
+                        encoding='utf-8',
+                        on_bad_lines='skip',
+                        low_memory=False)
+        
+        # Check if dataframe is empty
+        if df.empty:
+            st.error("❌ The CSV file appears to be empty")
+            return None
+            
         # Convert DateTime column to datetime
-        df['DateTime'] = pd.to_datetime(df['DateTime'])
+        if 'DateTime' in df.columns:
+            df['DateTime'] = pd.to_datetime(df['DateTime'], errors='coerce')
+        
         # Extract additional time features if not present
-        if 'Year' not in df.columns:
+        if 'Year' not in df.columns and 'DateTime' in df.columns:
             df['Year'] = df['DateTime'].dt.year
-        if 'Month' not in df.columns:
+        if 'Month' not in df.columns and 'DateTime' in df.columns:
             df['Month'] = df['DateTime'].dt.month
+            
         return df
+        
     except FileNotFoundError:
         st.error("❌ Dataset file not found. Please ensure 'cleaned_uber.csv' exists in the same directory as app.py")
         return None
+    except pd.errors.EmptyDataError:
+        st.error("❌ The CSV file appears to be empty or corrupted")
+        return None
     except Exception as e:
         st.error(f"❌ Error loading data: {str(e)}")
+        st.info("💡 Try checking if the CSV file format is correct")
         return None
 
 # Load the data
