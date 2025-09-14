@@ -73,4 +73,4 @@ The dashboard uses Uber ride booking data with the following columns:
 - **Consistent Color Scheme**: Coordinated colors across all visualizations
 
 ## 🌐 Live Demo
-https://uberdataanalyticsdashboard-am9eksnt3rpnwzhdzf6ty7.streamlit.app/)
+https://uberdataanalyticsdashboard-am9eksnt3rpnwzhdzf6ty7.streamlit.app/
