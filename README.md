@@ -11,17 +11,17 @@ A comprehensive Streamlit dashboard for analyzing Uber ride booking data with in
   - Unique customers count
 - **Interactive Charts**
   - Booking status distribution
-  - Customer ratings histogram
-  - Driver ratings histogram
+  - Customer ratings
+  - Driver ratings
 
 ### 🚕 Trip Experience Dashboard
-- Booking status pie chart
+- Booking status
 - Average VTAT (Vehicle Turn Around Time) by vehicle type
 - Average CTAT (Customer Turn Around Time) by vehicle type
 
 ### 💰 Revenue Dashboard
-- Booking value by vehicle type (bar chart)
-- Revenue share by vehicle type (pie chart)
+- Booking value by vehicle type
+- Revenue share by vehicle type
 - Daily revenue trend over time
 
 ## 🔍 Interactive Filters
